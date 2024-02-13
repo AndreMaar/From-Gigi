@@ -1,9 +1,9 @@
 :root {
-  --border-color: rgb(255, 193, 203);
-  --background: rgb(230, 240, 230);
-  --front-bg: rgb(162, 227, 243);
+  --border-color: rgb(223, 243, 227);
+  --background: rgb(255, 193, 203);
+  --front-bg: rgb(147, 225, 244);
   --front-bg-darken: rgb(112, 177, 193);
-  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(85, 80, 80, 0.1);
   --drop-shadow: rgba(0, 0, 0, 0.5);
   --text: #331717;
 }
@@ -11,7 +11,7 @@
 html,
 body {
   overflow: hidden;
-  background-color: #808080;
+  background-color: #f3dada;
   width: 100%;
   height: 100%;
 }
@@ -170,5 +170,12 @@ body {
 }
 .heart-3:after {
   left: 30px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
