@@ -18,8 +18,8 @@ body {
 
 .card {
   position: relative;
-  width: 400px;
-  height: 275px;
+  width: 320px;
+  height: 210px;
   border: 10px solid var(--border-color);
   margin: 360px auto;
   box-shadow: inset 10px 0px 15px 0px var(--shadow);
@@ -35,18 +35,19 @@ body {
 }
 
 .card .textContainer #header {
-  font-size: 1.3rem;
-  margin: 40px auto;
+  font-size: 1.2rem;
+  margin: 10px auto;
 }
+
 
 .card p {
   font-family: 'Roboto';
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   line-height: 1.4;
   color: var(--text);
   font-style: italic;
   text-align: center;
-  margin: 30px auto;
+  margin: 10px auto;
 }
 
 .card .front {
@@ -179,9 +180,6 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
 
-  width: 30%;
 }
 
