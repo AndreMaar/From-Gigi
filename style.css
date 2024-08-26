@@ -1,186 +1,116 @@
-:root {
-  --border-color: rgb(223, 243, 227);
-  --background: rgb(255, 193, 203);
-  --front-bg: rgb(147, 225, 244);
-  --front-bg-darken: rgb(112, 177, 193);
-  --shadow: rgba(85, 80, 80, 0.1);
-  --drop-shadow: rgba(0, 0, 0, 0.5);
-  --text: #331717;
+:root{
+  --primary: #fff;
+  --bg-color: rgb(5, 53, 61);
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgb(252, 8, 231);
 }
-
-html,
 body {
-  overflow: hidden;
-  background-color: #f3dada;
-  width: 100%;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Встановлюємо висоту тіла для забезпечення центрування */
 }
 
-.card {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Зробимо контейнер на всю висоту екрану */
+}
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.envelope-wrapper > .envelope {
   position: relative;
-  width: 320px;
-  height: 210px;
-  border: 10px solid var(--border-color);
-  margin: 360px auto;
-  box-shadow: inset 10px 0px 15px 0px var(--shadow);
-  background-color: var(--background);
-  margin-bottom: auto;
-
+  width: 400px; /* Збільшено розмір конверта */
+  height: 250px; /* Збільшено висоту конверта */
 }
 
-.card .textContainer {
-  width: 80%;
-  height: 80%;
-  margin: auto;
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 150px solid var(--envelope-tab); /* Відповідає новій висоті конверта */
+  border-right: 200px solid transparent; /* Відповідає новій ширині конверта */
+  border-left: 200px solid transparent; /* Відповідає новій ширині конверта */
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
 }
 
-.card .textContainer #header {
-  font-size: 1.2rem;
-  margin: 10px auto;
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 150px solid transparent; /* Відповідає новій висоті конверта */
+  border-right: 200px solid var(--envelope-cover); /* Відповідає новій ширині конверта */
+  border-bottom: 100px solid var(--envelope-cover); /* Відповідає новій висоті конверта */
+  border-left: 200px solid var(--envelope-cover); /* Відповідає новій ширині конверта */
 }
 
-
-.card p {
-  font-family: 'Roboto';
-  font-size: 1.0rem;
-  line-height: 1.4;
-  color: var(--text);
-  font-style: italic;
+.envelope > .letter {
+  position: absolute;
+  top: 10px; /* Налаштовано верхній відступ для вирівнювання */
+  left: 50%;
+  transform: translateX(-50%) scale(0.5); /* Центрування та початковий масштаб */
+  width: 70%; /* Збільшено ширину листа */
+  height: 90%; /* Збільшено висоту листа */
+  background: var(--primary);
   text-align: center;
-  margin: 10px auto;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
 }
 
-.card .front {
+.envelope > .letter > .text {
+  font-family: 'Bitter', sans-serif;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 10px;
+}
+.heart {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background: none; /* Прибираємо колір фону */
+  z-index: 4;
+  transform: translate(-50%, -20%); /* Зберігаємо те ж саме позиціонування */
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+
+.heart img {
   width: 100%;
   height: 100%;
-  margin: -10px 0px 0px -10px;
-  border: 10px solid var(--border-color);
-  backface-visibility: hidden;
-  background-color: var(--front-bg);
-  background-size: contain;
-  transform-style: preserve-3d;
-  transform-origin: 50% 0%;
-  transform: perspective(800px) rotateX(0deg);
-  transition: all 0.8s ease-in-out;
-}
-
-.card:hover .front {
-  transform: perspective(800px) rotateX(170deg);
-}
-
-.card .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 10px solid var(--border-color);
-  margin: -10px 0px 0px -10px;
-  backface-visibility: visible;
-  filter: drop-shadow(2px 2px 4px var(--drop-shadow));
-  transform-style: preserve-3d;
-  transform-origin: 50% 0%;
-  transform: perspective(800px) rotateX(0deg);
-  transition: all 0.8s ease-in-out;
-  background-color: var(--background);
-  box-shadow: 0 0 0 0 var(--shadow);
-  
-}
-
-.card:hover .back {
-  transform: perspective(800px) rotateX(170deg);
-  box-shadow: 0px 5px 10px 0px var(--shadow), inset 2px 0px 15px 0px var(--shadow);
-}
-
-.heart-container {
-  position: relative;
-  top: calc(50% - 50px);
-  left: calc(50% - 50px);
-}
-
-.heart-1 {
-  position: absolute;
-  background-color: red;
-  filter: drop-shadow(0px 0px 5px var(--drop-shadow));
-  height: 100px;
-  width: 100px;
-  margin: 0 auto;
-  transform: rotate(-45deg);
-}
-.heart-1:before,
-.heart-1:after {
-  content: "";
-  position: absolute;
-  background-color: red;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-}
-.heart-1:before{
-  top: -50px
-}
-.heart-1:after {
-  left: 50px;
-}
-
-.heart-2 {
-  position: absolute;
-  background-color: rgb(255, 0, 85);
-  filter: drop-shadow(0px 0px 5px var(--drop-shadow));
-  height: 80px;
-  width: 80px;
-  margin: 0 auto;
-  transform: rotate(-45deg);
-  top: 25px;
-  left: 11px;
-}
-.heart-2:before,
-.heart-2:after {
-  content: "";
-  position: absolute;
-  background-color: rgb(255, 0, 85);
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-}
-.heart-2:before{
-  top: -40px
-}
-.heart-2:after {
-  left: 40px;
-}
-
-.heart-3 {
-  position: absolute;
-  background-color: rgb(255, 60, 125);
-  filter: drop-shadow(0px 0px 5px var(--drop-shadow));
-  height: 60px;
-  width: 60px;
-  margin: 0 auto;
-  transform: rotate(-45deg);
-  top: 49px;
-  left: 21px;
-}
-.heart-3:before,
-.heart-3:after {
-  content: "";
-  position: absolute;
-  background-color: rgb(255, 60, 125);
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-}
-.heart-3:before{
-  top: -30px
-}
-.heart-3:after {
-  left: 30px;
-}
-
-.center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
-  max-height: 50%
 }
-
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+.flap > .envelope > .letter {
+  top: -190px; /* Враховуючи новий розмір конверта */
+  transform: translateX(-50%) scale(1.2); /* Центрування та масштаб під час відкриття */
+  transition-delay: 1s;
+}
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
