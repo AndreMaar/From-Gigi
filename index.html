@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Valentine's Day</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="card">
-      <div class="back"></div>
-      <div class="front">
-        <div class="heart-container">
-          <div class="heart-1"></div>
-          <div class="heart-2"></div>
-          <div class="heart-3"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Envelope + Letter (Open/Close on Click)</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <p>
+                             Так як адреси твоєї я не знаю, вирішив зробити так як вмію.
+                        </p>
+                        <strong>From GIGI to BELLA.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="heart">
+                <img src="lol.jpg" alt="Heart Image">
+            </div>
         </div>
-      </div>
-
-      <div class="textContainer">
-        <p id="header">З Днем Святого Валентина!</p>
-        <IMG SRC="cat.gif" class="center">
-        <p>З тобою, я б з радістю пішов  навіть в ліс!!!</p>
-        
-      </div>
     </div>
-  </body>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+</body>
 </html>
