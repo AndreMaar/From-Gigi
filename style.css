@@ -1,6 +1,6 @@
 :root{
   --primary: #fff;
-  --bg-color: rgb(5, 53, 61);
+  --bg-color: #9DE093;
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
   --envelope-cover: #e6cfa7;
@@ -64,11 +64,11 @@ body {
 
 .envelope > .letter {
   position: absolute;
-  top: 10px; /* Налаштовано верхній відступ для вирівнювання */
+  top: -70px; /* Налаштовано верхній відступ для вирівнювання */
   left: 50%;
   transform: translateX(-50%) scale(0.5); /* Центрування та початковий масштаб */
   width: 70%; /* Збільшено ширину листа */
-  height: 90%; /* Збільшено висоту листа */
+  height: 140%; /* Збільшено висоту листа */
   background: var(--primary);
   text-align: center;
   transition: all 1s ease-in-out;
@@ -80,7 +80,7 @@ body {
   font-family: 'Bitter', sans-serif;
   color: var(--txt-color);
   text-align: left;
-  font-size: 10px;
+  font-size: 9px;
 }
 .heart {
   position: absolute;
@@ -104,11 +104,16 @@ body {
   z-index: 0;
 }
 .flap > .envelope > .letter {
-  top: -190px; /* Враховуючи новий розмір конверта */
+  top: -240px; /* Враховуючи новий розмір конверта */
   transform: translateX(-50%) scale(1.2); /* Центрування та масштаб під час відкриття */
   transition-delay: 1s;
 }
 .flap > .heart {
   transform: rotate(90deg);
   transition-delay: 0.4s;
+}
+.centered {
+  display: block;
+  text-align: center;
+  margin-top: 1rem; /* Можна налаштувати відступ згори для додаткового простору */
 }
