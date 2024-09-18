@@ -8,7 +8,7 @@ const wrapperRect = wrapper.getBoundingClientRect();
 const noBtnRect = noBtn.getBoundingClientRect();
 
 yesBtn.addEventListener('click', () => {
-    question.innerHTML = 'Then see you on Sunday in Holosiivskyi Park :3';
+    question.innerHTML = 'Then see you on Sunday in Pusha-Vodytsya :3';
     myImg.src = 'gif2.gif';
     playMusic(); // Виклик функції для відтворення музики
 });
