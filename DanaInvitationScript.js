@@ -9,7 +9,8 @@ const noBtnRect = noBtn.getBoundingClientRect();
 
 yesBtn.addEventListener('click', () => {
     question.innerHTML = 'Then see you on Sunday in Holosiivskyi Park :3';
-    myImg.src = 'gif2.gif'
+    myImg.src = 'gif2.gif';
+    playMusic(); // Виклик функції для відтворення музики
 });
 
 noBtn.addEventListener('mouseover', () => {
@@ -19,3 +20,10 @@ noBtn.addEventListener('mouseover', () => {
     noBtn.style.left = i + 'px';
     noBtn.style.top = j + 'px';
 });
+
+function playMusic() {
+    let audio = new Audio("music.mp3");
+    audio.play().catch(error => {
+        console.error("Аудіо не вдалося відтворити:", error);
+    });
+}
